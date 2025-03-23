@@ -3,6 +3,7 @@
 
 
 class AbstractController {
+public:
     virtual ~AbstractController() = default;
 
     virtual void addList() = 0;
