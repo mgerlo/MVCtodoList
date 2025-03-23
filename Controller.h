@@ -6,7 +6,7 @@
 
 class Controller : public AbstractController {
 public:
-    Controller(Model *m) : model(m) {}
+    explicit Controller(Model *m) : model(m) {}
 
     // TODO override methods
 
