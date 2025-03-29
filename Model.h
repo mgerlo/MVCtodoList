@@ -15,7 +15,16 @@ public:
 
     void removeObserver(Observer *o) override;
 
-    list<TodoList> getLists() const {
+    int getNum() const {
+        return numLists;
+    }
+
+    void setNum(const int n) {
+        numLists = n;
+        notify();
+    }
+
+    const list<TodoList> &getLists() const {
         return lists;
     }
 
@@ -25,6 +34,7 @@ public:
     }
 
 private:
+    int numLists;
     list<TodoList> lists;
     list<Observer *> observers;
 };
