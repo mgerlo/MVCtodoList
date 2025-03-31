@@ -8,7 +8,7 @@ using namespace std;
 
 class TodoList {
 public:
-    list<Task> getTasks() const {
+    const list<Task> &getTasks() const {
         return tasks;
     }
 

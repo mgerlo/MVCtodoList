@@ -12,3 +12,15 @@ void Model::addObserver(Observer *o) {
 void Model::removeObserver(Observer *o) {
     observers.remove(o);
 }
+
+void Model::setNum(const int n) {
+    numLists = n;
+    notify();
+}
+
+void Model::setList(const TodoList &list) {
+    lists.push_back(list);
+    int value = getNum();
+    value++;
+    setNum(value);
+}

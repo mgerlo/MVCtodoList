@@ -19,22 +19,16 @@ public:
         return numLists;
     }
 
-    void setNum(const int n) {
-        numLists = n;
-        notify();
-    }
+    void setNum(int n);
 
     const list<TodoList> &getLists() const {
         return lists;
     }
 
-    void addList(const TodoList &list) {
-        lists.push_back(list);
-        notify();
-    }
+    void setList(const TodoList &list);
 
 private:
-    int numLists;
+    int numLists = 0;
     list<TodoList> lists;
     list<Observer *> observers;
 };
