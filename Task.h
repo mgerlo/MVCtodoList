@@ -8,7 +8,8 @@ using namespace std;
 
 class Task {
 public:
-    explicit Task(string desc = "Activity", string d = "today", string t = "10:00 AM", int p = 0, bool c = false);
+    explicit Task(const string &desc = "Activity", const string &d = "today", const string &t = "10:00 AM", int p = 0,
+                  bool c = false);
 
     const string &getDescription() const {
         return description;

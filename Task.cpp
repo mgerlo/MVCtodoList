@@ -1,6 +1,7 @@
 #include "Task.h"
 
-Task::Task(string desc, string d, string t, int p, bool c) : description(desc), date(d), time(t), priority(p),
+Task::Task(const string &desc, const string &d, const string &t, int p, bool c) : description(desc), date(d), time(t),
+                                                                                  priority(p),
                                                              done(c) {}
 
 void Task::printTask() const {
