@@ -3,13 +3,16 @@
 
 #include <iostream>
 #include <string>
+#include <regex>
 
 using namespace std;
 
 class Task {
 public:
-    explicit Task(const string &desc = "Activity", const string &d = "today", const string &t = "10:00 AM", int p = 0,
-                  bool c = false);
+    explicit Task(const string &desc = "Activity", const string &d = "01-01-2025", const string &t = "10:00", int p = 0,
+                  bool c = false);      // testare il costruttore,
+    // se si passano valori come "Pippo" o "Paperino", lancia un'eccezione
+    // in fase di impostazione (costruttore) controllare con un regex che il formato sia corretto
 
     const string &getDescription() const {
         return description;
@@ -23,17 +26,15 @@ public:
         return date;
     }
 
-    void setDate(const string &d) {
-        date = d;
-    }
+    void
+    setDate(const string &d);     // in fase di impostazione (set) controllare con un regex che il formato sia corretto
 
     const string &getTime() const {
         return time;
     }
 
-    void setTime(const string &t) {
-        time = t;
-    }
+    void
+    setTime(const string &t);     // in fase di impostazione (set) controllare con un regex che il formato sia corretto
 
     int getPriority() const {
         return priority;
@@ -55,8 +56,8 @@ public:
 
 private:
     string description;
-    string date;
-    string time;
+    string date;    // use regex (STL) per controllare forma / formato della stringa passata nei setter e nel costruttore
+    string time;    // use regex ... (garantire che date sia sempre una data e time sia sempre un orario)
     int priority;
     bool done;
 };
