@@ -45,6 +45,14 @@ void Task::setTime(const string &t) {
     }
 }
 
+bool Task::operator==(const Task &r) const {
+    return (description == r.getDescription()) &&
+           (date == r.getDate()) &&
+           (time == r.getTime()) &&
+           (priority == r.getPriority()) &&
+           (done == r.isDone());
+}
+
 void Task::printTask() const {
     cout << "Description: " << description << endl;
     cout << "Date: " << date << endl;
@@ -52,4 +60,3 @@ void Task::printTask() const {
     cout << "Priority: " << priority << endl;
     cout << "Done: " << (done ? "Yes" : "No") << endl;
 }
-

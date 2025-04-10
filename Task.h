@@ -27,15 +27,13 @@ public:
         return date;
     }
 
-    void
-    setDate(const string &d);     // in fase di impostazione (set) controllare con un regex che il formato sia corretto
+    void setDate(const string &d);     // (set) controllare con un regex che il formato sia corretto
 
     const string &getTime() const {
         return time;
     }
 
-    void
-    setTime(const string &t);     // in fase di impostazione (set) controllare con un regex che il formato sia corretto
+    void setTime(const string &t);     // (set) controllare con un regex che il formato sia corretto
 
     int getPriority() const {
         return priority;
@@ -52,6 +50,8 @@ public:
     void setDone(bool c) {
         done = c;
     }
+
+    bool operator==(const Task &r) const;   // sovraccaricamento operatore == per Task
 
     void printTask() const;
 

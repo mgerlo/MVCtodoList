@@ -26,6 +26,8 @@ public:
         tasks.push_back(task);
     }
 
+    bool removeTask(const Task &t);
+
     //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:
