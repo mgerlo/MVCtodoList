@@ -4,15 +4,15 @@
 
 TEST(Model, ListsNumber) {
     TodoList l1;
-    l1.setTask(Task("Start"));
-    l1.setTask(Task("Example"));
+    l1.addTask(Task("Start"));
+    l1.addTask(Task("Example"));
     TodoList l2;
-    l2.setTask(Task());
-    l2.setTask(Task("Activity 2"));
-    l2.setTask(Task("Activity 3"));
-    l2.setTask(Task("Activity 4"));
+    l2.addTask(Task());
+    l2.addTask(Task("Activity 2"));
+    l2.addTask(Task("Activity 3"));
+    l2.addTask(Task("Activity 4"));
     TodoList l3;
-    l3.setTask(Task("Activity 1"));
+    l3.addTask(Task("Activity 1"));
     Model m;
     m.setList(l1);
     m.setList(l2);

@@ -1,13 +1,17 @@
 #include "TodoList.h"
 
+TodoList::TodoList(const string &name) : nameList(name) {}
+
+/*
 void TodoList::printTodoList() const {
     if (tasks.empty())
-        cout << "ToDo List is empty !" << endl;
+        cout << " List is empty !" << endl;
     else {
-        cout << "ToDo List:" << endl;
+        cout << " List:" << endl;
         for (auto &task: tasks) {
             cout << "----------" << endl;
             task.printTask();
         }
     }
 }
+*/

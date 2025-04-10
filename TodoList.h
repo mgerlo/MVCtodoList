@@ -8,17 +8,28 @@ using namespace std;
 
 class TodoList {
 public:
-    const list<Task> &getTasks() const {
+    explicit TodoList(const string &name = "New List");
+
+    const string &getNameList() const {
+        return nameList;
+    }
+
+    void setNameList(const string &name) {
+        nameList = name;
+    }
+
+    const list<Task> &getTasks() const {    // ...forse utilizzato per la GUI
         return tasks;
     }
 
-    void setTask(const Task &task) {
+    void addTask(const Task &task) {
         tasks.push_back(task);
     }
 
-    void printTodoList() const;
+    //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:
+    string nameList;
     list<Task> tasks;
 };
 
