@@ -22,7 +22,15 @@ TEST(Task, InvalidDate) {
     EXPECT_THROW(Task("Errore data", "2025-01-01"), invalid_argument);
 }
 
+TEST(Task, InvalidRangeDate) {
+    EXPECT_THROW(Task("Errore data", "32-00-2025"), invalid_argument);
+}
+
 // Test formato orario non valido
 TEST(Task, InvalidTime) {
     EXPECT_THROW(Task("Errore orario", "01-01-2025", "Paperino", 1, false), invalid_argument);
+}
+
+TEST(Task, InvalidRangeTime) {
+    EXPECT_THROW(Task("Errore orario", "01-01-2025", "24:85", 1, false), invalid_argument);
 }
