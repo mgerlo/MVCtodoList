@@ -28,6 +28,8 @@ public:
 
     bool removeTask(const Task &t);
 
+    int numTotTask() const;
+
     //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:
