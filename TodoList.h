@@ -35,6 +35,10 @@ public:
 
     int numDone() const;
 
+    int numTaskDate(const string &data) const;
+
+    int numTaskPriority(int p) const;
+
     //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:

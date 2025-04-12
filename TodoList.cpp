@@ -27,6 +27,20 @@ int TodoList::numDone() const {
     return static_cast<int>(n);
 }
 
+int TodoList::numTaskDate(const std::string &data) const {
+    auto n = count_if(tasks.begin(), tasks.end(), [data](const Task &t) -> bool {
+        return t.getDate() == data;
+    });
+    return static_cast<int>(n);
+}
+
+int TodoList::numTaskPriority(int p) const {
+    auto n = count_if(tasks.begin(), tasks.end(), [p](const Task &t) -> bool {
+        return t.getPriority() == p;
+    });
+    return static_cast<int>(n);
+}
+
 /*
 void TodoList::printTodoList() const {
     if (tasks.empty())
