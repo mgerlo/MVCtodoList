@@ -2,6 +2,7 @@
 #define TODOLIST_TODOLIST_H
 
 #include <list>
+#include <algorithm>
 #include "Task.h"
 
 using namespace std;
@@ -29,6 +30,10 @@ public:
     bool removeTask(const Task &t);
 
     int numTotTask() const;
+
+    int numNotDone() const;
+
+    int numDone() const;
 
     //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 

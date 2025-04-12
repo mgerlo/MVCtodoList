@@ -13,6 +13,20 @@ int TodoList::numTotTask() const {
     return static_cast<int>(n);
 }
 
+int TodoList::numNotDone() const {
+    auto n = count_if(tasks.begin(), tasks.end(), [](const Task &t) -> bool {
+        return !t.isDone();
+    });
+    return static_cast<int>(n);
+}
+
+int TodoList::numDone() const {
+    auto n = count_if(tasks.begin(), tasks.end(), [](const Task &t) -> bool {
+        return t.isDone();
+    });
+    return static_cast<int>(n);
+}
+
 /*
 void TodoList::printTodoList() const {
     if (tasks.empty())
