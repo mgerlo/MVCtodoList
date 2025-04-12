@@ -50,11 +50,19 @@ list<Task> TodoList::getNotDone() const {
 }
 
 list<Task> TodoList::getDone() const {
-    list<Task> Done;
-    copy_if(tasks.begin(), tasks.end(), back_inserter(Done), [](const Task &t) -> bool {
+    list<Task> done;
+    copy_if(tasks.begin(), tasks.end(), back_inserter(done), [](const Task &t) -> bool {
         return t.isDone();
     });
-    return Done;
+    return done;
+}
+
+list<Task> TodoList::searchTask(const std::string &desc) const {
+    list<Task> results;
+    copy_if(tasks.begin(), tasks.end(), back_inserter(results), [desc](const Task &t) -> bool {
+        return t.getDescription() == desc;
+    });
+    return results;
 }
 
 /*

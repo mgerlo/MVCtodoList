@@ -43,6 +43,8 @@ public:
 
     list<Task> getDone() const;     // prendere() tutti i Tasks COMPLETATI
 
+    list<Task> searchTask(const string &desc) const;    // cercare() i Tasks con una descrizione
+
     //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:
