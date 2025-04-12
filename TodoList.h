@@ -27,17 +27,21 @@ public:
         tasks.push_back(task);
     }
 
-    bool removeTask(const Task &t);
+    bool removeTask(const Task &t);     // cancellare() Task
 
-    int numTotTask() const;
+    int numTotTask() const;     // contare() il numero totale di Tasks
 
-    int numNotDone() const;
+    int numNotDone() const;     // contare() il numero totale di Tasks NON COMPLETATI
 
-    int numDone() const;
+    int numDone() const;        // contare() il numero totale di Tasks COMPLETATI
 
-    int numTaskDate(const string &data) const;
+    int numTaskDate(const string &data) const;      // contare() il numero di Tasks con una certa data
 
-    int numTaskPriority(int p) const;
+    int numTaskPriority(int p) const;       // contare() il numero di Tasks con una certa priorità
+
+    list<Task> getNotDone() const;      // prendere() tutti i Tasks NON COMPLETATI
+
+    list<Task> getDone() const;     // prendere() tutti i Tasks COMPLETATI
 
     //void printTodoList() const;     // remove print() in presenza di GUI, responsabilità della vista
 

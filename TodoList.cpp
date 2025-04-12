@@ -41,6 +41,22 @@ int TodoList::numTaskPriority(int p) const {
     return static_cast<int>(n);
 }
 
+list<Task> TodoList::getNotDone() const {
+    list<Task> notDone;
+    copy_if(tasks.begin(), tasks.end(), back_inserter(notDone), [](const Task &t) -> bool {
+        return !t.isDone();
+    });
+    return notDone;
+}
+
+list<Task> TodoList::getDone() const {
+    list<Task> Done;
+    copy_if(tasks.begin(), tasks.end(), back_inserter(Done), [](const Task &t) -> bool {
+        return t.isDone();
+    });
+    return Done;
+}
+
 /*
 void TodoList::printTodoList() const {
     if (tasks.empty())
