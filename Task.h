@@ -53,7 +53,11 @@ public:
 
     bool operator==(const Task &r) const;   // sovraccaricamento operatore == per Task
 
-    void printTask() const;
+    regex checkDate();
+
+    regex checkTime();
+
+    //void printTask() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:
     string description;

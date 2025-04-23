@@ -2,15 +2,11 @@
 
 Task::Task(const string &desc, const string &d, const string &t, int p, bool c) : description(desc), date(d), time(t),
                                                                                   priority(p), done(c) {
-    // Regex per data (DD-MM-YYYY) e orario (HH:MM)
-    //regex regexDate(R"(^\d{2}-\d{2}-\d{4}$)");
-    //regex regexTime(R"(^\d{2}:\d{2}$)");
-
     // Regex per data DD-MM-YYYY con (01-31)-(01-12)-YYYY
-    regex regexDate(R"(^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$)");
+    regex regexDate = checkDate();
 
     // Regex per orario HH:MM con (00-23):(00-59)
-    regex regexTime(R"(^([01][0-9]|2[0-3]):([0-5][0-9])$)");
+    regex regexTime = checkTime();
 
     if (!regex_match(d, regexDate)) {
         date = "01-01-2025";
@@ -24,22 +20,14 @@ Task::Task(const string &desc, const string &d, const string &t, int p, bool c) 
 }
 
 void Task::setDate(const string &d) {
-    // Regex per data (DD-MM-YYYY)
-    //regex regexDate(R"(^\d{2}-\d{2}-\d{4}$)");
-
-    // Regex per data DD-MM-YYYY con (01-31)-(01-12)-YYYY
-    regex regexDate(R"(^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$)");
+    regex regexDate = checkDate();
     if (regex_match(d, regexDate)) {
         date = d;
     }
 }
 
 void Task::setTime(const string &t) {
-    // Regex per orario (HH:MM)
-    //regex regexTime(R"(^\d{2}:\d{2}$)");
-
-    // Regex per orario HH:MM con (00-23):(00-59)
-    regex regexTime(R"(^([01][0-9]|2[0-3]):([0-5][0-9])$)");
+    regex regexTime = checkTime();
     if (regex_match(t, regexTime)) {
         time = t;
     }
@@ -53,6 +41,25 @@ bool Task::operator==(const Task &r) const {
            (done == r.isDone());
 }
 
+regex Task::checkDate() {
+    // Regex per data DD-MM-YYYY con (01-31)-(01-12)-YYYY
+    regex regexDate(R"(^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$)");
+    return regexDate;
+
+    // Regex per data (DD-MM-YYYY)
+    //regex regexDate(R"(^\d{2}-\d{2}-\d{4}$)");
+}
+
+regex Task::checkTime() {
+    // Regex per orario HH:MM con (00-23):(00-59)
+    regex regexTime(R"(^([01][0-9]|2[0-3]):([0-5][0-9])$)");
+    return regexTime;
+
+    // Regex per orario (HH:MM)
+    //regex regexTime(R"(^\d{2}:\d{2}$)");
+}
+
+/*
 void Task::printTask() const {
     cout << "Description: " << description << endl;
     cout << "Date: " << date << endl;
@@ -60,3 +67,4 @@ void Task::printTask() const {
     cout << "Priority: " << priority << endl;
     cout << "Done: " << (done ? "Yes" : "No") << endl;
 }
+*/
