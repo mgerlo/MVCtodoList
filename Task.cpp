@@ -9,13 +9,15 @@ Task::Task(const string &desc, const string &d, const string &t, int p, bool c) 
     regex regexTime = checkTime();
 
     if (!regex_match(d, regexDate)) {
-        date = "01-01-2025";
-        throw invalid_argument("Formato data non valido. Usare DD-MM-YYYY con giorno 01-31 e mese 01-12");
+        date = "0";
+        throw invalid_argument(
+                "Formato data non valido. Usare DD-MM-YYYY con giorno 01-31 e mese 01-12. Oppure solo 0 per indicare nessuna data");
     }
 
     if (!regex_match(t, regexTime)) {
-        time = "10:00";
-        throw invalid_argument("Formato orario non valido. Usare HH:MM con ore 00-23 e minuti 00-59");
+        time = "0";
+        throw invalid_argument(
+                "Formato orario non valido. Usare HH:MM con ore 00-23 e minuti 00-59. Oppure solo 0 per indicare nessun orario");
     }
 }
 
@@ -42,8 +44,8 @@ bool Task::operator==(const Task &r) const {
 }
 
 regex Task::checkDate() {
-    // Regex per data DD-MM-YYYY con (01-31)-(01-12)-YYYY
-    regex regexDate(R"(^(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4}$)");
+    // Regex per data DD-MM-YYYY con (01-31)-(01-12)-YYYY oppure solo 0 per indicare nessuna data
+    regex regexDate(R"(^(0|(0[1-9]|[12][0-9]|3[01])-(0[1-9]|1[0-2])-\d{4})$)");
     return regexDate;
 
     // Regex per data (DD-MM-YYYY)
@@ -51,8 +53,8 @@ regex Task::checkDate() {
 }
 
 regex Task::checkTime() {
-    // Regex per orario HH:MM con (00-23):(00-59)
-    regex regexTime(R"(^([01][0-9]|2[0-3]):([0-5][0-9])$)");
+    // Regex per orario HH:MM con (00-23):(00-59) oppure solo 0 per indicare nessun orario
+    regex regexTime(R"(^(0|([01][0-9]|2[0-3]):([0-5][0-9]))$)");
     return regexTime;
 
     // Regex per orario (HH:MM)

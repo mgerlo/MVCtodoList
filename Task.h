@@ -10,10 +10,12 @@ using namespace std;
 
 class Task {
 public:
-    explicit Task(const string &desc = "Activity", const string &d = "01-01-2025", const string &t = "10:00", int p = 0,
-                  bool c = false);      // testare il costruttore,
-    // se si passano valori come "Pippo" o "Paperino", lancia un'eccezione
-    // in fase di impostazione (costruttore) controllare con un regex che il formato sia corretto
+    explicit Task(const string &desc, const string &d, const string &t, int p = 0, bool c = false);
+
+    /* testare il costruttore,
+     * se si passano valori come "Pippo" o "Paperino", lancia un'eccezione
+     * in fase di impostazione (costruttore) controllare con un regex che il formato sia corretto
+     */
 
     const string &getDescription() const {
         return description;
@@ -53,9 +55,9 @@ public:
 
     bool operator==(const Task &r) const;   // sovraccaricamento operatore == per Task
 
-    regex checkDate();
+    static regex checkDate();
 
-    regex checkTime();
+    static regex checkTime();
 
     //void printTask() const;     // remove print() in presenza di GUI, responsabilità della vista
 
