@@ -1,6 +1,6 @@
 #include "TodoList.h"
 
-TodoList::TodoList(const string &name) : nameList(name) {}
+TodoList::TodoList(const string &name, const list<Task> &l) : nameList(name), tasks(l) {}
 
 bool TodoList::removeTask(const Task &t) {
     auto dim = tasks.size();

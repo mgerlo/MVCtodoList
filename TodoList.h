@@ -9,7 +9,7 @@ using namespace std;
 
 class TodoList {
 public:
-    explicit TodoList(const string &name = "New List");
+    explicit TodoList(const string &name = "New List", const list<Task> &l = {});
 
     const string &getNameList() const {
         return nameList;
