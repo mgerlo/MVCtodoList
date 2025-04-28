@@ -10,7 +10,7 @@ using namespace std;
 
 class Task {
 public:
-    explicit Task(const string &desc, const string &d, const string &t, int p = 0, bool c = false);
+    Task(const string &desc, const string &d, const string &t, int p = 0, bool c = false);
 
     /* testare il costruttore,
      * se si passano valori come "Pippo" o "Paperino", lancia un'eccezione
@@ -55,13 +55,13 @@ public:
 
     bool operator==(const Task &r) const;   // sovraccaricamento operatore == per Task
 
-    static regex checkDate();
-
-    static regex checkTime();
-
     //void printTask() const;     // remove print() in presenza di GUI, responsabilità della vista
 
 private:
+    bool isValidDate(const string &d);      // controllo su calendario gregoriano
+
+    regex checkTime();
+
     string description;
     string date;    // use regex (STL) per controllare forma / formato della stringa passata nei setter e nel costruttore
     string time;    // use regex ... (garantire che date sia sempre una data e time sia sempre un orario)

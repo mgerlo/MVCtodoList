@@ -37,3 +37,13 @@ TEST(Task, InvalidTime) {
 TEST(Task, InvalidRangeTime) {
     EXPECT_THROW(Task("Errore orario", "01-01-2025", "24:85", 1, false), invalid_argument);
 }
+
+// Test data CALENDARIO GREGORIANO, anno bisestile...
+TEST(Task, GregorianCalendar) {
+    EXPECT_THROW(Task("Data1", "31-06-2024", "0"), invalid_argument);
+    EXPECT_NO_THROW(Task("Data2", "29-02-2020", "0"));
+    EXPECT_NO_THROW(Task("Data3", "29-02-2024", "0"));
+    EXPECT_THROW(Task("Data4", "29-02-2025", "0"), invalid_argument);
+    EXPECT_THROW(Task("Data5", "31-04-2020", "0"), invalid_argument);
+    EXPECT_NO_THROW(Task("Data6", "29-02-2000", "0"));
+}
