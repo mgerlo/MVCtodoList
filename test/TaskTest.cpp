@@ -3,8 +3,8 @@
 #include "../Task.h"
 
 TEST(Task, Constructor) {
-    Task t("1", "0", "0");
-    EXPECT_EQ("1", t.getDescription());
+    Task t;
+    EXPECT_EQ("Activity", t.getDescription());
     // EXPECT_STRCASEEQ("actIVITY", "AcTiViTry");   // trying C-strings comparison
     EXPECT_EQ("0", t.getDate());
     EXPECT_EQ("0", t.getTime());
@@ -20,12 +20,13 @@ TEST(Task, ValidConstructor) {
 
 // Test formato data non valido
 TEST(Task, InvalidDate) {
-    EXPECT_THROW(Task("Errore data", "2025-01-01", "0"), invalid_argument);
-    EXPECT_THROW(Task("Invalid", "N", "0"), invalid_argument);
+    EXPECT_THROW(Task("Errore data", "2025-01-01"), invalid_argument);
+    EXPECT_THROW(Task("Partita", "01/01/2025"), invalid_argument);
+    EXPECT_THROW(Task("Invalid", "N"), invalid_argument);
 }
 
 TEST(Task, InvalidRangeDate) {
-    EXPECT_THROW(Task("Errore data", "32-00-2025", "0"), invalid_argument);
+    EXPECT_THROW(Task("Errore data", "32-00-2025"), invalid_argument);
 }
 
 // Test formato orario non valido
@@ -40,10 +41,10 @@ TEST(Task, InvalidRangeTime) {
 
 // Test data CALENDARIO GREGORIANO, anno bisestile...
 TEST(Task, GregorianCalendar) {
-    EXPECT_THROW(Task("Data1", "31-06-2024", "0"), invalid_argument);
-    EXPECT_NO_THROW(Task("Data2", "29-02-2020", "0"));
-    EXPECT_NO_THROW(Task("Data3", "29-02-2024", "0"));
-    EXPECT_THROW(Task("Data4", "29-02-2025", "0"), invalid_argument);
-    EXPECT_THROW(Task("Data5", "31-04-2020", "0"), invalid_argument);
-    EXPECT_NO_THROW(Task("Data6", "29-02-2000", "0"));
+    EXPECT_THROW(Task("Data1", "31-06-2024"), invalid_argument);
+    EXPECT_NO_THROW(Task("Data2", "29-02-2020"));
+    EXPECT_NO_THROW(Task("Data3", "29-02-2024"));
+    EXPECT_THROW(Task("Data4", "29-02-2025"), invalid_argument);
+    EXPECT_THROW(Task("Data5", "31-04-2020"), invalid_argument);
+    EXPECT_NO_THROW(Task("Data6", "29-02-2000"));
 }

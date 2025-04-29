@@ -4,7 +4,7 @@
 
 class TaskSuite : public ::testing::Test {
 protected:
-    Task t = Task("1", "0", "0");
+    Task t;
 
     void SetUp() override {
         t.setDescription("Back to the Future");

@@ -5,19 +5,19 @@
 TEST(List, CountTotalTasks) {
     TodoList l;
     EXPECT_EQ(0, l.numTotTask());
-    l.addTask(Task("first", "0", "0"));
-    l.addTask(Task("second", "0", "0"));
+    l.addTask(Task("first"));
+    l.addTask(Task("second"));
     EXPECT_EQ(2, l.numTotTask());
-    l.removeTask(Task("first", "0", "0"));
+    l.removeTask(Task("first"));
     EXPECT_EQ(1, l.numTotTask());
 }
 
 TEST(List, GetTasks) {
     TodoList l;
-    l.addTask(Task("0", "0", "0"));
+    l.addTask(Task("0"));
     l.addTask(Task("1", "01-01-2025", "21:00", 1, true));
     l.addTask(Task("2", "01-01-2025", "21:00", 1, true));
-    l.addTask(Task("3", "0", "0"));
+    l.addTask(Task("3"));
     l.addTask(Task("4", "01-01-2025", "21:00", 1, true));
     list<Task> n = l.getNotDone();
     TodoList ln("ListNotDone", n);
@@ -36,23 +36,23 @@ TEST(List, GetTasks) {
 
 TEST(List, NumTasksByDate) {
     TodoList l1("List1", {
-            Task("0", "29-04-2025", "0"),
-            Task("1", "0", "0"),
-            Task("2", "0", "0"),
-            Task("3", "29-04-2025", "0"),
-            Task("4", "0", "0")
+            Task("0", "29-04-2025"),
+            Task("1"),
+            Task("2"),
+            Task("3", "29-04-2025"),
+            Task("4")
     });
     EXPECT_EQ(2, l1.numTaskDate("29-04-2025"));
     EXPECT_EQ(3, l1.numTaskDate("0"));
-    l1.removeTask(Task("3", "29-04-2025", "0"));
-    l1.addTask(Task("5", "0", "0"));
+    l1.removeTask(Task("3", "29-04-2025"));
+    l1.addTask(Task("5"));
     EXPECT_EQ(1, l1.numTaskDate("29-04-2025"));
     EXPECT_EQ(4, l1.numTaskDate("0"));
 }
 
 TEST(List, NumTasksByPriority) {
     TodoList p("Lista", {
-            Task("0", "0", "0"),
+            Task("0"),
             Task("1", "0", "0", 3),
             Task("2", "0", "0", 3),
             Task("3", "0", "0", 0),
