@@ -2,7 +2,7 @@
 
 #include "../Task.h"
 
-TEST(Task, Constructor) {
+TEST(Task, DefaultConstructor) {
     Task t;
     EXPECT_EQ("Activity", t.getDescription());
     // EXPECT_STRCASEEQ("actIVITY", "AcTiViTry");   // trying C-strings comparison

@@ -6,7 +6,7 @@ class AbstractController {
 public:
     virtual ~AbstractController() = default;
 
-    virtual void addList() = 0;
+    virtual void newList() = 0;
 
     virtual void removeList() = 0;
 };

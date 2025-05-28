@@ -15,20 +15,20 @@ public:
 
     void removeObserver(Observer *o) override;
 
-    int getNum() const {
+    /*int getNum() const {
         return numLists;
-    }
+    }*/
 
-    void setNum(int n);
+    //void setNum(int n);
 
     const list<TodoList> &getLists() const {
         return lists;
     }
 
-    void setList(const TodoList &list);
+    void addList(const TodoList &list);
 
 private:
-    int numLists = 0;
+    //int numLists = 0;     // non serve perché si può usare size() sulle liste
     list<TodoList> lists;
     list<Observer *> observers;
 };

@@ -14,8 +14,10 @@ TEST(Model, ListsNumber) {
     TodoList l3;
     l3.addTask(Task("Activity 1"));
     Model m;
-    m.setList(l1);
-    m.setList(l2);
-    m.setList(l3);
-    EXPECT_EQ(3, m.getNum()) << "Something wrong incrementing Lists' Number";
+    EXPECT_EQ(0, m.getLists().size()) << "Empty (starting) list's size should be 0";
+    m.addList(l1);
+    EXPECT_EQ(1, m.getLists().size()) << "Something wrong incrementing Lists' Number";
+    m.addList(l2);
+    m.addList(l3);
+    EXPECT_EQ(3, m.getLists().size()) << "Something wrong incrementing Lists' Number";
 }
