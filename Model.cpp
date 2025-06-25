@@ -15,13 +15,5 @@ void Model::removeObserver(Observer *o) {
 
 void Model::addList(const TodoList &list) {
     lists.push_back(list);
-    /*int value = getNum();
-    value++;
-    setNum(value);*/
     notify();
 }
-
-/*void Model::setNum(const int n) {
-    numLists = n;
-    notify();
-}*/

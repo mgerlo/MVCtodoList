@@ -8,7 +8,13 @@ class Controller : public AbstractController {
 public:
     explicit Controller(Model *m) : model(m) {}
 
-    // TODO override methods
+    void newList() override;
+
+    void removeList() override;
+
+    Model *getModel() const {
+        return model;
+    }
 
 private:
     Model *model;

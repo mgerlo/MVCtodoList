@@ -45,7 +45,7 @@ View::View(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint
     wxBoxSizer *bSizer4;
     bSizer4 = new wxBoxSizer(wxHORIZONTAL);
 
-    dateTask = new wxStaticText(this, wxID_ANY, _("Data :"), wxDefaultPosition, wxDefaultSize, 0);
+    dateTask = new wxStaticText(this, wxID_ANY, _("Data (DD-MM-YYYY) :"), wxDefaultPosition, wxDefaultSize, 0);
     dateTask->Wrap(-1);
     bSizer4->Add(dateTask, 0, wxALL, 5);
 
@@ -58,7 +58,7 @@ View::View(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint
     wxBoxSizer *bSizer5;
     bSizer5 = new wxBoxSizer(wxHORIZONTAL);
 
-    timeTask = new wxStaticText(this, wxID_ANY, _("Orario :"), wxDefaultPosition, wxDefaultSize, 0);
+    timeTask = new wxStaticText(this, wxID_ANY, _("Orario (HH:MM) :"), wxDefaultPosition, wxDefaultSize, 0);
     timeTask->Wrap(-1);
     bSizer5->Add(timeTask, 0, wxALL, 5);
 
