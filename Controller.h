@@ -8,7 +8,7 @@ class Controller : public AbstractController {
 public:
     explicit Controller(Model *m) : model(m) {}
 
-    void newList() override;
+    void newList(const string &name) override;
 
     void removeList() override;
 

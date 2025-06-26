@@ -1,12 +1,15 @@
 #ifndef TODOLIST_ABSTRACTCONTROLLER_H
 #define TODOLIST_ABSTRACTCONTROLLER_H
 
+#include <string>
+
+using namespace std;
 
 class AbstractController {
 public:
     virtual ~AbstractController() = default;
 
-    virtual void newList() = 0;
+    virtual void newList(const string &name) = 0;
 
     virtual void removeList() = 0;
 };

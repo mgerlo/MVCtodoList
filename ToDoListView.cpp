@@ -6,7 +6,11 @@ ToDoListView::ToDoListView(wxWindow *parent, Model *model, Controller *controlle
 }
 
 void ToDoListView::onNewListClick(wxCommandEvent &event) {
-    //controller->newList();
+    string name = txtListName->GetValue().ToStdString();
+    if (!name.empty()) {
+        controller->newList(name);
+        txtListName->Clear(); // Pulisce il campo dopo inserimento
+    }
 }
 
 void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
@@ -18,7 +22,7 @@ void ToDoListView::onRemoveListClick(wxCommandEvent &event) {
 }
 
 void ToDoListView::update() {
-    txtNumLists->SetValue(std::to_string(model->getLists().size()));
+    txtNumLists->SetValue(to_string(model->getLists().size()));
     //txtNumTasks->SetValue(std::to_string(model->getNumTasks()));
     //txtNumDone->SetValue(std::to_string(model->getNumDoneTasks()));
 }
