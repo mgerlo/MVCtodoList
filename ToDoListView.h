@@ -14,6 +14,8 @@ private:
 public:
     ToDoListView(wxWindow *parent, Model *model, Controller *controller);
 
+    ~ToDoListView() override;
+
     // Event handler override
     void onNewListClick(wxCommandEvent &event) override;
 

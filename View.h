@@ -72,7 +72,7 @@ public:
          const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxSize(700, 500),
          long style = wxDEFAULT_FRAME_STYLE | wxTAB_TRAVERSAL);
 
-    ~View();
+    virtual ~View();
 
 };
 

@@ -168,4 +168,8 @@ View::View(wxWindow *parent, wxWindowID id, const wxString &title, const wxPoint
 }
 
 View::~View() {
+    newListButton->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(View::onNewListClick), NULL, this);
+    newTaskButton->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(View::onNewTaskClick), NULL, this);
+    removeListButton->Disconnect(wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler(View::onRemoveListClick), NULL,
+                                 this);
 }

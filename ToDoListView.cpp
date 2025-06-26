@@ -6,7 +6,7 @@ ToDoListView::ToDoListView(wxWindow *parent, Model *model, Controller *controlle
 }
 
 void ToDoListView::onNewListClick(wxCommandEvent &event) {
-    controller->newList();
+    //controller->newList();
 }
 
 void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
@@ -21,4 +21,9 @@ void ToDoListView::update() {
     txtNumLists->SetValue(std::to_string(model->getLists().size()));
     //txtNumTasks->SetValue(std::to_string(model->getNumTasks()));
     //txtNumDone->SetValue(std::to_string(model->getNumDoneTasks()));
+}
+
+ToDoListView::~ToDoListView() {
+    if (model)
+        model->removeObserver(this);
 }
