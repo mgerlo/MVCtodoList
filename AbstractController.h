@@ -11,7 +11,7 @@ public:
 
     virtual void newList(const string &name) = 0;
 
-    virtual void removeList() = 0;
+    virtual void removeList(const string &name) = 0;
 };
 
 

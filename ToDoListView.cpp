@@ -3,6 +3,9 @@
 ToDoListView::ToDoListView(wxWindow *parent, Model *model, Controller *controller)
         : View(parent), model(model), controller(controller) {
     model->addObserver(this);
+    txtNumLists->SetValue("0");
+    txtNumTasks->SetValue("0");
+    txtNumDone->SetValue("0");
 }
 
 void ToDoListView::onNewListClick(wxCommandEvent &event) {
@@ -18,7 +21,11 @@ void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
 }
 
 void ToDoListView::onRemoveListClick(wxCommandEvent &event) {
-    controller->removeList();
+    string name = txtRemoveName->GetValue().ToStdString();
+    if (!name.empty()) {
+        controller->removeList(name);
+        txtRemoveName->Clear();
+    }
 }
 
 void ToDoListView::update() {

@@ -10,7 +10,7 @@ public:
 
     void newList(const string &name) override;
 
-    void removeList() override;
+    void removeList(const string &name) override;
 
     Model *getModel() const {
         return model;

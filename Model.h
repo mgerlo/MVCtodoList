@@ -21,6 +21,8 @@ public:
 
     void addList(const TodoList &list);
 
+    void removeListByName(const string &name);
+
 private:
     list<TodoList> lists;
     list<Observer *> observers;

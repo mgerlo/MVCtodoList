@@ -7,6 +7,8 @@ void Controller::newList(const string &name) {
     }
 }
 
-void Controller::removeList() {
-    // model->removeList(...); // implementazione futura
+void Controller::removeList(const string &name) {
+    if (!name.empty()) {
+        model->removeListByName(name);
+    }
 }
