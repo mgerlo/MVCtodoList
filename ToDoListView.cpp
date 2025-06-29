@@ -17,7 +17,32 @@ void ToDoListView::onNewListClick(wxCommandEvent &event) {
 }
 
 void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
-    // controller->newTask(); // da implementare in futuro
+    string desc = txtDesc->GetValue().ToStdString();
+    if (!desc.empty()) {
+        string date = txtDate->GetValue().ToStdString();
+        if (date.empty())
+            date = "0";
+        string time = txtTime->GetValue().ToStdString();
+        if (time.empty())
+            time = "0";
+        string priorityStr = txtPriority->GetValue().ToStdString();
+        if (priorityStr.empty())
+            priorityStr = "0";
+        bool done = checkBoxDone->IsChecked();
+        int priority = 0;
+        try {
+            priority = std::stoi(priorityStr);
+        } catch (...) {
+            priority = 0;  // default
+        }
+        controller->addNewTask(desc, date, time, priority, done);
+        txtDesc->Clear();
+        txtDate->Clear();
+        txtTime->Clear();
+        txtPriority->Clear();
+        checkBoxDone->SetValue(false);
+        txtDesc->SetFocus();
+    }
 }
 
 void ToDoListView::onRemoveListClick(wxCommandEvent &event) {
@@ -30,8 +55,14 @@ void ToDoListView::onRemoveListClick(wxCommandEvent &event) {
 
 void ToDoListView::update() {
     txtNumLists->SetValue(to_string(model->getLists().size()));
-    //txtNumTasks->SetValue(std::to_string(model->getNumTasks()));
-    //txtNumDone->SetValue(std::to_string(model->getNumDoneTasks()));
+
+    int total = 0, countDone = 0;
+    for (const auto &l: model->getLists()) {
+        total += l.numTotTask();
+        countDone += l.numDone();
+    }
+    txtNumTasks->SetValue(to_string(total));
+    txtNumDone->SetValue(to_string(countDone));
 }
 
 ToDoListView::~ToDoListView() {

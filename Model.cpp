@@ -34,3 +34,10 @@ void Model::removeListByName(const string &name) {
     if (removed)
         notify();
 }
+
+void Model::addTaskToLastList(const Task &task) {
+    if (!lists.empty()) {
+        lists.back().addTask(task);
+        notify();   // aggiorna le view collegate
+    }
+}

@@ -68,7 +68,7 @@ protected:
 
 public:
 
-    View(wxWindow *parent, wxWindowID id = wxID_ANY, const wxString &title = "ToDo_List GUI",
+    explicit View(wxWindow *parent, wxWindowID id = wxID_ANY, const wxString &title = "ToDo_List GUI",
          const wxPoint &pos = wxDefaultPosition, const wxSize &size = wxSize(700, 500),
          long style = wxDEFAULT_FRAME_STYLE | wxTAB_TRAVERSAL);
 

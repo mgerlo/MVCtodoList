@@ -18,9 +18,9 @@ public:
 wxIMPLEMENT_APP(MyApp);
 
 bool MyApp::OnInit() {
-    Model *model = new Model;
-    Controller *controller = new Controller(model);
-    ToDoListView *frame = new ToDoListView(nullptr, model, controller);
+    auto *model = new Model;
+    auto *controller = new Controller(model);
+    auto *frame = new ToDoListView(nullptr, model, controller);
     //View *frame = new View(nullptr, wxID_ANY, "ToDo_List GUI");
     frame->Show(true);
     return true;

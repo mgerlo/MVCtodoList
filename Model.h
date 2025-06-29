@@ -23,6 +23,8 @@ public:
 
     void removeListByName(const string &name);
 
+    void addTaskToLastList(const Task &task);
+
 private:
     list<TodoList> lists;
     list<Observer *> observers;

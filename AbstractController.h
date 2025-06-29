@@ -12,6 +12,8 @@ public:
     virtual void newList(const string &name) = 0;
 
     virtual void removeList(const string &name) = 0;
+
+    virtual void addNewTask(const string &desc, const string &date, const string &time, int priority, bool done) = 0;
 };
 
 
