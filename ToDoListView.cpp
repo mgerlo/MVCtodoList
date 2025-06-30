@@ -35,7 +35,9 @@ void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
         } catch (...) {
             priority = 0;  // default
         }
-        controller->addNewTask(desc, date, time, priority, done);
+        try {
+            controller->addNewTask(desc, date, time, priority, done);
+        } catch (const invalid_argument &e) {}
         txtDesc->Clear();
         txtDate->Clear();
         txtTime->Clear();
