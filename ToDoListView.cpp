@@ -37,13 +37,16 @@ void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
         }
         try {
             controller->addNewTask(desc, date, time, priority, done);
-        } catch (const invalid_argument &e) {}
-        txtDesc->Clear();
-        txtDate->Clear();
-        txtTime->Clear();
-        txtPriority->Clear();
-        checkBoxDone->SetValue(false);
-        txtDesc->SetFocus();
+            txtDesc->Clear();
+            txtDate->Clear();
+            txtTime->Clear();
+            txtPriority->Clear();
+            checkBoxDone->SetValue(false);
+            txtDesc->SetFocus();
+        } catch (const invalid_argument &e) {
+            txtDate->SetValue("0");
+            txtTime->SetValue("0");
+        }
     }
 }
 
