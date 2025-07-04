@@ -8,13 +8,13 @@ Task::Task(const string &desc, const string &d, const string &t, int p, bool c) 
 
     // Regex per data DD-MM-YYYY con (01-31)-(01-12)-YYYY seguendo le regole del CALENDARIO GREGORIANO
     if (!isValidDate(d)) {
-        date = "0";
+        //date = "0";
         throw invalid_argument(
                 "Data non valida. Usare DD-MM-YYYY con giorno 01-31 e mese 01-12 (calendario Gregoriano). Oppure solo 0 per indicare nessuna data");
     }
 
     if (!regex_match(t, regexTime)) {
-        time = "0";
+        //time = "0";
         throw invalid_argument(
                 "Formato orario non valido. Usare HH:MM con ore 00-23 e minuti 00-59. Oppure solo 0 per indicare nessun orario");
     }

@@ -44,8 +44,8 @@ void ToDoListView::onNewTaskClick(wxCommandEvent &event) {
             checkBoxDone->SetValue(false);
             txtDesc->SetFocus();
         } catch (const invalid_argument &e) {
-            txtDate->SetValue("0");
-            txtTime->SetValue("0");
+            //txtDate->SetValue("0");
+            //txtTime->SetValue("0");
         }
     }
 }
